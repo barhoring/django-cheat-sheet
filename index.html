@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Django - the simple guide - no deep shit!</title>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/0/normalize.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Cutive+Mono|Rye|Ubuntu|Shadows+Into+Light|Patrick+Hand+SC|Averia+Serif+Libre" rel="stylesheet">
+</head>
+<body>
+    <div class="scrollblock block-title">
+        <h1>Django - the simple guide</h1>
+        <span>just a simple django cheat sheet, no deep shit ;)</span>
+        <p class="inspiredby">
+            inspired by <a href="http://www.twitter.com/rogerdudler" class="inspiredby">Roger Dudler</a>'s <a href="http://rogerdudler.github.io/git-guide/" class="inspiredby">git - the simple guide</a>
+            <br />
+        </p>
+			<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=gitguide" id="_carbonads_js"></script>
+    </div>
+    <!-- setup -->
+    <a name="setup"></a>
+    <div class="scrollblock block-setup">
+        <h2>start a project</h2>
+        <p>
+        	<code>django-admin startproject project_name</code>
+        </p>
+    </div>
+    <a name="create"></a>
+    <div class="scrollblock block-create">
+        <h2>start the server</h2>
+        <p>
+            cd into your project's root directory* <br />
+            to start Django server<br /><br />
+            <code>python manage.py runserver</code><br />
+        </p>
+        <div class="astrix">
+            the root is where your manage.py lives
+        </div>
+    </div>
+    <a name="checkout"></a>
+    <div class="scrollblock block-checkout">
+        <h2>create an app</h2>
+        <p>
+            an app is a directory containing code functionality able to live by itself apart from the other parts of the website<br /><br />
+            <code>python manage.py startapp app_name</code><br />
+        </p>
+    </div>
+    <a name="trees"></a>
+    <div class="scrollblock block-trees">
+        <h2>workflow</h2>
+        <p>
+            When Django finds a regular expression match, Django calls the<br /> 
+        	specified view function, with an HttpRequest object as the first argument <br />
+        	and any “captured” values from the regular expression as other arguments.
+        </p>
+    </div>
+    <a name="add"></a>
+    <div class="scrollblock block-add">
+        <h2>set URLconf</h2>
+        <p>
+            create a file called urls.py in your app directory and set urlpatterns<br /><br />
+            <code> urlpatterns = [ url(r'^$', views.index, name='index'), ]</code><br /><br />
+            in your django root directory (project_name)<br /><br />
+            <code>url(r'^app_name/', include('app_name.urls'))</code><br />
+        </p>
+    </div>
+    <a name="push"></a>
+    <div class="scrollblock block-remote">
+        <h2>migrate</h2>
+        <p>
+        	The migrate command looks at the INSTALLED_APPS setting and creates any necessary database tables
+            Your changes are now in the <b>HEAD</b> of your local working copy. To send those changes to your remote repository, execute <br /><br />
+            <code>python manage.py migrate</code><br />
+        </p>
+    </div>
+    <a name="branching"></a>
+    <div class="scrollblock block-branching">
+        <h2>include the app</h2>
+        <p>
+            add a reference to its configuration class in the INSTALLED_APPS setting <br />
+        </p>
+        <p>
+            <code>'app_name.apps.AppnameConfig'</code><br />
+        </p>
+    </div>
+    <a name="update"></a>
+    <div class="scrollblock block-merging">
+        <h2>migrate</h2>
+        <p>
+        	running makemigrations tells Django that you’ve made some <br />
+        	changes to your models and that you’d like <br />the changes to be stored as a migration. <br /><br />
+        	<code>python manage.py makemigrations polls</code><br /><br />
+        	get the SQL of a migration <br /><br />
+        	<code>python manage.py sqlmigrate app_name 0001</code><br /><br />
+        	apply the migration <br /><br />
+        	<code>python manage.py migrate</code>
+        </p>
+    </div>
+    <a name="tagging"></a>
+    <div class="scrollblock block-tagging">
+        <h2>Django's API</h2>
+        <p>
+            play with the django admin console:<br /><br />
+            <code>python manage.py shell</code><br />
+        </p>
+    </div>
+    <a name="log"></a>
+    <div class="scrollblock block-log">
+        <h2>Creating an admin user</h2>
+        <p>
+            
+            <code>python manage.py createsuperuser</code><br /><br />
+            and login at http://127.0.0.1:8000/login/
+        </p>
+    </div>
+    <a name="checkout-replace"></a>
+    <div class="scrollblock block-checkout-replace">
+        <h2>make an app modifiable in the admin</h2>
+        <p>
+            In app_name/admin.py, import the model<br /><br />
+            <code>from .models import Modelname</code><br /><br />
+            register the model to the Admin<br /><br />
+            <code>admin.site.register(Modelname)</code>
+        </p>
+    </div>
+    <a name="hints"></a>
+
+    <a name="resources"></a>
+    <div class="scrollblock block-resources">
+        <h2>links & resources</h2>
+        <h3>get help</h3>
+        <p class="report">
+            <ul>
+                <li><a href="https://www.djangoproject.com/">django documentation</a></li>
+                <li><a href="http://django.readthedocs.io/en/stable/">readthedocs - stable </a></li>
+            </ul><br />
+            <div class="report">please report issues on <a href="https://github.com/barhoring/DjangoNoDeepShit/issues">github</div>
+         </p>
+        </p>
+    </div>
+</body>
+</html>
