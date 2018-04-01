@@ -10,16 +10,17 @@
 
         gtag('config', 'UA-115530486-1');
     </script>
-
-        
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@2.4.1/dist/tippy.all.min.js"></script>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title>django cheat sheet</title>
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <!-- fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Cutive+Mono|Rye|Ubuntu|Shadows+Into+Light|Patrick+Hand+SC|Averia+Serif+Libre" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Cutive+Mono|Rye|Ubuntu|Shadows+Into+Light|Patrick+Hand+SC|Averia+Serif+Libre|Nanum+Pen+Script" rel="stylesheet">
 </head>
 <body>
+    <input id="blur-hack" type="text" style="position: absolute; opacity: 0;">
     <div class="scrollblock block-title">
         <h1>django cheat sheet</h1>
         <span class="inspiredby">made for perfectionists with deadlines.</span>
@@ -29,7 +30,11 @@
     <div class="scrollblock block-start-project">
         <h2>start a project</h2>
         <p>
-        	<code>django-admin startproject project_name</code>
+            <code id="project">django-admin startproject project_name</code>
+            <!-- Trigger -->
+            <button class="btn" title="Copied!" data-clipboard-target="#project">
+                <img class="clippy" src="images/clippy.svg" width="13" alt="Copy to clipboard">
+            </button>
         </p>
     </div>
     <a name="start-server"></a>
@@ -38,7 +43,10 @@
         <p>
             cd into your project's root directory* <br />
             to start Django server<br /><br />
-            <code>python manage.py runserver</code><br />
+            <code id="server">python manage.py runserver</code>
+            <button class="btn" title="Copied!" data-clipboard-target="#server">
+                <img class="clippy" src="images/clippy.svg" width="13" alt="Copy to clipboard">
+            </button>
         </p>
         <div class="astrix">
             the root is where your manage.py lives
@@ -49,7 +57,11 @@
         <h2>create an app</h2>
         <p>
             an app is a directory containing code functionality able to live by itself apart from the other parts of the website<br /><br />
-            <code>python manage.py startapp app_name</code><br />
+            <code id="app">python manage.py startapp app_name</code>
+            <!-- Trigger -->
+            <button class="btn" title="Copied!" data-clipboard-target="#app">
+                <img class="clippy" src="images/clippy.svg" width="13" alt="Copy to clipboard">
+            </button>
         </p>
     </div>
     <a name="workflow"></a>
@@ -65,10 +77,21 @@
     <div class="scrollblock block-urlconf">
         <h2>set URLconf</h2>
         <p>
-            create a file called urls.py in your app directory and set urlpatterns<br /><br />
-            <code> urlpatterns = [ url(r'^$', views.index, name='index'), ]</code><br /><br />
-            in your django root directory (project_name)<br /><br />
-            <code>url(r'^app_name/', include('app_name.urls'))</code><br />
+            create a file called urls.py in your app directory and set urlpatterns<br />
+            <span>for example set / to point to index.html:</span><br />
+            <code id="urls" class="example">urlpatterns = [ url(r'^$', views.index, name='index'), ]</code>
+            <!-- Trigger -->
+            <button class="btn" title="Copied!" data-clipboard-target="#urls">
+                <img class="clippy" src="images/clippy.svg" width="13" alt="Copy to clipboard">
+            </button>
+            <br /><br />
+            add urls.py in your app's directory and register to let it route its internal links:<br /><br />
+            <code id="regi_urls">url(r'^app_name/', include('app_name.urls'))</code>
+            <!-- Trigger -->
+            <button class="btn" title="Copied!" data-clipboard-target="#regi_urls">
+                <img class="clippy" src="images/clippy.svg" width="13" alt="Copy to clipboard">
+            </button>
+            <br />
         </p>
     </div>
     <a name="include"></a>
@@ -78,7 +101,12 @@
             add a reference to its configuration class in the INSTALLED_APPS setting <br />
         </p>
         <p>
-            <code>'app_name.apps.AppnameConfig'</code><br />
+            <code id="include">'app_name.apps.AppnameConfig'</code>
+            <!-- Trigger -->
+            <button class="btn" title="Copied!" data-clipboard-target="#include">
+                <img class="clippy" src="images/clippy_white.jpg" width="13" alt="Copy to clipboard">
+            </button>
+            <br />
         </p>
     </div>
     <a name="migrate"></a>
@@ -87,11 +115,27 @@
         <p>
         	running makemigrations tells Django that you’ve made some <br />
         	changes to your models and that you’d like <br />the changes to be stored as a migration. <br /><br />
-        	<code>python manage.py makemigrations polls</code><br /><br />
-        	get the SQL of a migration <br /><br />
-        	<code>python manage.py sqlmigrate app_name 0001</code><br /><br />
-        	apply the migration <br /><br />
-        	<code>python manage.py migrate</code>
+            <code id="makemigrations">python manage.py makemigrations polls</code>
+            <button class="btn" title="Copied!" data-clipboard-target="#makemigrations">
+                <img class="clippy" src="images/clippy.svg" width="13" alt="Copy to clipboard">
+            </button>
+            <br /><br />
+            apply the migration <br /><br />
+            <code id="migrate">python manage.py migrate</code>
+            <!-- Trigger -->
+            <button class="btn" title="Copied!" data-clipboard-target="#migrate">
+                <img class="clippy" src="images/clippy.svg" width="13" alt="Copy to clipboard">
+            </button>
+            <br /><br />
+            bonus:
+            get the SQL of a migration <br />
+            read the SQL command to be execute before you apply the migration<br /><br />
+            <code id="sqlmigrate">python manage.py sqlmigrate app_name 0001</code>
+            <!-- Trigger -->
+            <button class="btn" title="Copied!" data-clipboard-target="#sqlmigrate">
+                <img class="clippy" src="images/clippy.svg" width="13" alt="Copy to clipboard">
+            </button>
+            <br />
         </p>
     </div>
     <a name="api"></a>
@@ -99,15 +143,24 @@
         <h2>Django's API</h2>
         <p>
             play with the django admin console:<br /><br />
-            <code>python manage.py shell</code><br />
+            <code id="dapi">python manage.py shell</code>
+            <!-- Trigger -->
+            <button class="btn" title="Copied!" data-clipboard-target="#dapi">
+                <img class="clippy" src="images/clippy.svg" width="13" alt="Copy to clipboard">
+            </button>
+            <br />
         </p>
     </div>
     <a name="superuser"></a>
     <div class="scrollblock block-superuser">
         <h2>Creating an admin user</h2>
         <p>
-            
-            <code>python manage.py createsuperuser</code><br /><br />
+            <code id="superuser">python manage.py createsuperuser</code>
+            <!-- Trigger -->
+            <button class="btn" title="Copied!" data-clipboard-target="#superuser">
+                <img class="clippy" src="images/clippy.svg" width="13" alt="Copy to clipboard">
+            </button>
+            <br /><br />
             and login at http://127.0.0.1:8000/login/
         </p>
     </div>
@@ -116,9 +169,18 @@
         <h2>make an app modifiable in the admin</h2>
         <p>
             In app_name/admin.py, import the model<br /><br />
-            <code>from .models import Modelname</code><br /><br />
+            <code id="import">from .models import Modelname</code>
+            <!-- Trigger -->
+            <button class="btn" title="Copied!" data-clipboard-target="#import">
+                <img class="clippy" src="images/clippy.svg" width="13" alt="Copy to clipboard">
+            </button>
+            <br /><br />
             register the model to the Admin<br /><br />
-            <code>admin.site.register(Modelname)</code>
+            <code id="adminreg">admin.site.register(Modelname)</code>
+            <!-- Trigger -->
+            <button class="btn" title="Copied!" data-clipboard-target="#adminreg">
+                <img class="clippy" src="images/clippy.svg" width="13" alt="Copy to clipboard">
+            </button>
         </p>
     </div>
     <a name="resources"></a>
@@ -128,6 +190,7 @@
             <ul>
                 <li><a href="https://www.djangoproject.com/">django documentation</a></li>
                 <li><a href="http://django.readthedocs.io/en/stable/">readthedocs - stable </a></li>
+                <li><a href="https://djangogirls.org/">django girls</a></li>
             </ul><br />
          </p>
         </p>
@@ -137,5 +200,45 @@
         inspired by Roger Dudler's <a href="http://rogerdudler.github.io/git-guide/">git - the simple guide</a><br /><br />
         <div class="report">please report issues on <a href="https://github.com/barhoring/django-cheat-sheet">github</a></div>
     </div>
+    <script>
+        
+        var clipboard = new ClipboardJS('.btn');
+
+        clipboard.on('success', function(e) {
+            //console.info('Action:', e.action);
+            console.info('Text:', e.text);
+            //console.info('Trigger:', e.trigger);
+
+            e.clearSelection();
+        });
+
+        clipboard.on('error', function(e) {
+            console.error('Action:', e.action);
+            console.error('Trigger:', e.trigger);
+        });
+
+        tippy('.btn', {
+        title: 'copy',
+        delay: 0,
+        arrow: false,
+        arrowType: 'round',
+        size: 'medium',
+        duration: 0,
+        animation: 'scale',
+        trigger: 'click',
+        onShow(instance) {
+            //debugger;
+            //console.log(instance);
+            var btn = this;
+            btn.click();
+            setTimeout(function(){
+                //debugger;
+                btn.click();
+            },290);
+        },
+    });
+    const template = document.querySelector('template');
+    //template.textContent = 'New tooltip :)';
+    </script>
 </body>
 </html>

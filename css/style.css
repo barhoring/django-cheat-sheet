@@ -40,6 +40,47 @@ h1 {
     font-size: 12px;
 }
 
+.clippy {
+    margin-top: -3px;
+    position: relative;
+    top: 3px;
+    fill:#848484;
+    color:red;
+}
+
+.clippy_black {
+
+    background-color:white;
+    margin-top: -3px;
+    position: relative;
+    top: 3px;
+    fill:#848484;
+    color:red;
+}
+
+
+.btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding-bottom: 0;
+    padding-top: 0;
+    position: absolute;
+    right: 26rem;
+    top: 18rem;
+}
+
+.btn_bgwhite {
+    background: white;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding-bottom: 0;
+    padding-top: 0;
+    position: absolute;
+}
+
 
 h2 {
 	font-size: 70px;
@@ -163,6 +204,7 @@ code {
 .block-workflow p { color: #06406C; }
 .block-workflow code { color: #000; background-color: white; }
 .block-urlconf { background-color: #cc4037; }
+.block-urlconf span{ color: white; background-color: #cc4037; font-family: 'Nanum Pen Script', cursive; font-size: 25px;}
 .block-urlconf h2, .block-add p { color: #4c0d09; }
 .block-migrate { background-color: #ffc19f; }
 .block-migrate h2 { color: #cc4037; }
@@ -195,4 +237,14 @@ code {
 .report {
     font-size: 12px;
     font-family: menlo, monospace;
+}
+
+
+.example {
+    font-style: italic;
+}
+
+.example span{
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 7px;
 }
