@@ -1,29 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115530486-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'UA-115530486-1');
     </script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
     <script src="https://unpkg.com/tippy.js@2.4.1/dist/tippy.all.min.js"></script>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>django cheat sheet</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>django cheat sheet</title>
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <!-- fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Cutive+Mono|Rye|Ubuntu|Shadows+Into+Light|Patrick+Hand+SC|Averia+Serif+Libre|Nanum+Pen+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Cutive+Mono|Rye|Ubuntu|Shadows+Into+Light|Patrick+Hand+SC|Averia+Serif+Libre|Nanum+Pen+Script"
+        rel="stylesheet">
 </head>
+
 <body>
+        <!-- facebook share script -->    
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12';
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
     <input id="blur-hack" type="text" style="position: absolute; opacity: 0;">
     <div class="scrollblock block-title">
         <h1>django cheat sheet</h1>
-        <span class="inspiredby">made for perfectionists with deadlines.</span>
+        <span class="inspiredby">made for perfectionists with
+            <span class="underline"> deadlines.</span>
+        </span><br />
+        <!-- github start button -->
+        <a class="github-button" href="https://github.com/barhoring/django-cheat-sheet" data-size="large" data-show-count="true" aria-label="Star barhoring/django-cheat-sheet on GitHub">Star</a>
+        <!-- facebook share button -->
+        <div class="fb-share-button" data-href="https://barhoring.github.io/django-cheat-sheet/" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbarhoring.github.io%2Fdjango-cheat-sheet%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+      
+        <!-- Your share button code -->
+        <div class="fb-share-button" 
+        data-href="https://www.your-domain.com/your-page.html" 
+        data-layout="button_count">
+        </div>
     </div>
     <!-- setup -->
     <a name="start-project"></a>
@@ -41,8 +67,10 @@
     <div class="scrollblock block-start-server">
         <h2>start the server</h2>
         <p>
-            cd into your project's root directory* <br />
-            to start Django server<br /><br />
+            cd into your project's root directory*
+            <br /> to start Django server
+            <br />
+            <br />
             <code id="server">python manage.py runserver</code>
             <button class="btn" title="Copied!" data-clipboard-target="#server">
                 <img class="clippy" src="images/clippy.svg" width="13" alt="Copy to clipboard">
@@ -56,7 +84,9 @@
     <div class="scrollblock block-create-app">
         <h2>create an app</h2>
         <p>
-            an app is a directory containing code functionality able to live by itself apart from the other parts of the website<br /><br />
+            an app is a directory containing code functionality able to live by itself apart from the other parts of the website
+            <br />
+            <br />
             <code id="app">python manage.py startapp app_name</code>
             <!-- Trigger -->
             <button class="btn" title="Copied!" data-clipboard-target="#app">
@@ -68,24 +98,28 @@
     <div class="scrollblock block-workflow">
         <h2>workflow</h2>
         <p>
-            When Django finds a regular expression match, Django calls the<br /> 
-        	specified view function, with an HttpRequest object as the first argument <br />
-        	and any “captured” values from the regular expression as other arguments.
+            When Django finds a regular expression match, Django calls the
+            <br /> specified view function, with an HttpRequest object as the first argument
+            <br /> and any “captured” values from the regular expression as other arguments.
         </p>
     </div>
     <a name="urlconf"></a>
     <div class="scrollblock block-urlconf">
         <h2>set URLconf</h2>
         <p>
-            create a file called urls.py in your app directory and set urlpatterns<br />
-            <span>for example set / to point to index.html:</span><br />
+            create a file called urls.py in your app directory and set urlpatterns
+            <br />
+            <span>for example set / to point to index.html:</span>
+            <br />
             <code id="urls" class="example">urlpatterns = [ url(r'^$', views.index, name='index'), ]</code>
             <!-- Trigger -->
             <button class="btn" title="Copied!" data-clipboard-target="#urls">
                 <img class="clippy" src="images/clippy.svg" width="13" alt="Copy to clipboard">
             </button>
-            <br /><br />
-            add urls.py in your app's directory and register to let it route its internal links:<br /><br />
+            <br />
+            <br /> add urls.py in your app's directory and register to let it route its internal links:
+            <br />
+            <br />
             <code id="regi_urls">url(r'^app_name/', include('app_name.urls'))</code>
             <!-- Trigger -->
             <button class="btn" title="Copied!" data-clipboard-target="#regi_urls">
@@ -98,7 +132,8 @@
     <div class="scrollblock block-include">
         <h2>include the app</h2>
         <p>
-            add a reference to its configuration class in the INSTALLED_APPS setting <br />
+            add a reference to its configuration class in the INSTALLED_APPS setting
+            <br />
         </p>
         <p>
             <code id="include">'app_name.apps.AppnameConfig'</code>
@@ -113,23 +148,29 @@
     <div class="scrollblock block-migrate">
         <h2>migrate</h2>
         <p>
-        	running makemigrations tells Django that you’ve made some <br />
-        	changes to your models and that you’d like <br />the changes to be stored as a migration. <br /><br />
+            running makemigrations tells Django that you’ve made some
+            <br /> changes to your models and that you’d like
+            <br />the changes to be stored as a migration.
+            <br />
+            <br />
             <code id="makemigrations">python manage.py makemigrations polls</code>
             <button class="btn" title="Copied!" data-clipboard-target="#makemigrations">
                 <img class="clippy" src="images/clippy.svg" width="13" alt="Copy to clipboard">
             </button>
-            <br /><br />
-            apply the migration <br /><br />
+            <br />
+            <br /> apply the migration
+            <br />
+            <br />
             <code id="migrate">python manage.py migrate</code>
             <!-- Trigger -->
             <button class="btn" title="Copied!" data-clipboard-target="#migrate">
                 <img class="clippy" src="images/clippy.svg" width="13" alt="Copy to clipboard">
             </button>
-            <br /><br />
-            bonus:
-            get the SQL of a migration <br />
-            read the SQL command to be execute before you apply the migration<br /><br />
+            <br />
+            <br /> bonus: get the SQL of a migration
+            <br /> read the SQL command to be execute before you apply the migration
+            <br />
+            <br />
             <code id="sqlmigrate">python manage.py sqlmigrate app_name 0001</code>
             <!-- Trigger -->
             <button class="btn" title="Copied!" data-clipboard-target="#sqlmigrate">
@@ -142,7 +183,9 @@
     <div class="scrollblock block-api">
         <h2>Django's API</h2>
         <p>
-            play with the django admin console:<br /><br />
+            play with the django admin console:
+            <br />
+            <br />
             <code id="dapi">python manage.py shell</code>
             <!-- Trigger -->
             <button class="btn" title="Copied!" data-clipboard-target="#dapi">
@@ -160,22 +203,26 @@
             <button class="btn" title="Copied!" data-clipboard-target="#superuser">
                 <img class="clippy" src="images/clippy.svg" width="13" alt="Copy to clipboard">
             </button>
-            <br /><br />
-            and login at http://127.0.0.1:8000/login/
+            <br />
+            <br /> and login at http://127.0.0.1:8000/login/
         </p>
     </div>
     <a name="admin-modify"></a>
     <div class="scrollblock block-admin-modify">
         <h2>make an app modifiable in the admin</h2>
         <p>
-            In app_name/admin.py, import the model<br /><br />
+            In app_name/admin.py, import the model
+            <br />
+            <br />
             <code id="import">from .models import Modelname</code>
             <!-- Trigger -->
             <button class="btn" title="Copied!" data-clipboard-target="#import">
                 <img class="clippy" src="images/clippy.svg" width="13" alt="Copy to clipboard">
             </button>
-            <br /><br />
-            register the model to the Admin<br /><br />
+            <br />
+            <br /> register the model to the Admin
+            <br />
+            <br />
             <code id="adminreg">admin.site.register(Modelname)</code>
             <!-- Trigger -->
             <button class="btn" title="Copied!" data-clipboard-target="#adminreg">
@@ -188,23 +235,37 @@
         <h2>links & resources</h2>
         <p>
             <ul>
-                <li><a href="https://www.djangoproject.com/">django documentation</a></li>
-                <li><a href="http://django.readthedocs.io/en/stable/">readthedocs - stable </a></li>
-                <li><a href="https://djangogirls.org/">django girls</a></li>
-            </ul><br />
-         </p>
+                <li>
+                    <a href="https://www.djangoproject.com/">django documentation</a>
+                </li>
+                <li>
+                    <a href="http://django.readthedocs.io/en/stable/">readthedocs - stable </a>
+                </li>
+                <li>
+                    <a href="https://djangogirls.org/">django girls</a>
+                </li>
+            </ul>
+            <br />
+        </p>
         </p>
     </div>
     <div class="inspiredbyfooter">
-        made with <span class="heart">❤</span> by <a href="https://github.com/barhoring">Bar & Liz Horing Amir</a><br />
-        inspired by Roger Dudler's <a href="http://rogerdudler.github.io/git-guide/">git - the simple guide</a><br /><br />
-        <div class="report">please report issues on <a href="https://github.com/barhoring/django-cheat-sheet">github</a></div>
+        made with
+        <span class="heart">❤</span> by
+        <a href="https://github.com/barhoring">Bar & Liz Horing Amir</a>
+        <br /> inspired by Roger Dudler's
+        <a href="http://rogerdudler.github.io/git-guide/">git - the simple guide</a>
+        <br />
+        <br />
+        <div class="report">please report issues on
+            <a href="https://github.com/barhoring/django-cheat-sheet">github</a>
+        </div>
     </div>
     <script>
-        
+
         var clipboard = new ClipboardJS('.btn');
 
-        clipboard.on('success', function(e) {
+        clipboard.on('success', function (e) {
             //console.info('Action:', e.action);
             console.info('Text:', e.text);
             //console.info('Trigger:', e.trigger);
@@ -212,33 +273,34 @@
             e.clearSelection();
         });
 
-        clipboard.on('error', function(e) {
+        clipboard.on('error', function (e) {
             console.error('Action:', e.action);
             console.error('Trigger:', e.trigger);
         });
 
         tippy('.btn', {
-        title: 'copy',
-        delay: 0,
-        arrow: false,
-        arrowType: 'round',
-        size: 'medium',
-        duration: 0,
-        animation: 'scale',
-        trigger: 'click',
-        onShow(instance) {
-            //debugger;
-            //console.log(instance);
-            var btn = this;
-            btn.click();
-            setTimeout(function(){
+            title: 'copy',
+            delay: 0,
+            arrow: false,
+            arrowType: 'round',
+            size: 'medium',
+            duration: 0,
+            animation: 'scale',
+            trigger: 'click',
+            onShow(instance) {
                 //debugger;
+                //console.log(instance);
+                var btn = this;
                 btn.click();
-            },290);
-        },
-    });
-    const template = document.querySelector('template');
+                setTimeout(function () {
+                    //debugger;
+                    btn.click();
+                }, 290);
+            },
+        });
+        const template = document.querySelector('template');
     //template.textContent = 'New tooltip :)';
     </script>
 </body>
+
 </html>

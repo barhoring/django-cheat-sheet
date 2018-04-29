@@ -28,6 +28,10 @@ h1 {
     font-size: 20px;
 }
 
+.underline {
+    text-decoration: underline;
+}
+
 .inspiredbyfooter  {
     font-family: 'Patrick Hand SC', cursive;
     font-size: 14px;
