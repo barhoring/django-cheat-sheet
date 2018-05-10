@@ -266,10 +266,11 @@
         var clipboard = new ClipboardJS('.btn');
 
         clipboard.on('success', function (e) {
+            debugger;
             //console.info('Action:', e.action);
             console.info('Text:', e.text);
             //console.info('Trigger:', e.trigger);
-
+            
             e.clearSelection();
         });
 
@@ -288,7 +289,7 @@
             animation: 'scale',
             trigger: 'click',
             onShow(instance) {
-                //debugger;
+                debugger;
                 //console.log(instance);
                 var btn = this;
                 btn.click();
